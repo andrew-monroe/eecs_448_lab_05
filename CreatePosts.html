@@ -5,11 +5,11 @@
 <body>
   <h1>Create New Post</h1>
 
-  <form action="CreatePosts.php">
+  <form action="CreatePosts.php" method="POST">
     Username:<br>
-    <input type="text" name="username">
+    <input type="text" name="username" required>
     <br>Post:<br>
-    <input type="text" name="post_text">
+    <input type="text" name="post_text" required>
     <br><br>
     <input type="submit">
   </form>
