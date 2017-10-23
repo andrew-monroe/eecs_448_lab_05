@@ -1,25 +1,20 @@
 <?php
-$mysqli = new mysqli("mysql.eecs.ku.edu", "amonroe", 'P@$$word', "amonroe");
+$connection = new mysqli("mysql.eecs.ku.edu", 'amonroe', 'P@$$word123','amonroe');
 
-/* check connection */
-if ($mysqli->connect_errno) {
-    printf("Connect failed: %s\n", $mysqli->connect_error);
-    exit();
+if($connection->connect_error) {
+  die("Connection failed: " . $connection->connect_error);
 }
 
-$query = "INSERT INTO Users (user_id) VALUES (" . $user_id ")";
+$user_id = $_POST["username"];
 
-if ($result = $mysqli->query($query)) {
+$query = "INSERT INTO Users (user_id) VALUES ('$user_id')";
 
-    /* fetch associative array */
-    while ($row = $result->fetch_assoc()) {
-        printf ("%s (%s)\n", $row["Name"], $row["CountryCode"]);
-    }
-
-    /* free result set */
-    $result->free();
+if ($connection->query($query)) {
+  echo "User created successfully.";
+} else {
+  echo "Error: " . $query . "<br>" . $connnection->error;
 }
 
 /* close connection */
-$mysqli->close();
+$connection->close();
 ?>
