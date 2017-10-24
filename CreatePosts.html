@@ -7,7 +7,29 @@
 
   <form action="CreatePosts.php" method="POST">
     Username:<br>
-    <input type="text" name="username" required>
+      <?php
+        $connection = new mysqli("mysql.eecs.ku.edu", 'amonroe', 'P@$$word123','amonroe');
+
+        if($connection->connect_error) {
+          die("Connection failed: " . $connection->connect_error);
+        }
+
+        $query = "SELECT user_id FROM Users";
+
+        if ($users = $connection->query($query)) {
+          <select name="username" required>
+          while($row = $users->fetch_assoc()) {
+            echo "  <option>" . $row['user_id'] . "</option>";
+          }
+          </select>
+
+          $users->free();
+        } else {
+          echo "Error: " . $query . "<br>" . $connection->error;
+        }
+
+        $connection->close();
+      ?> 
     <br>Post:<br>
     <input type="text" name="content" required>
     <br><br>
