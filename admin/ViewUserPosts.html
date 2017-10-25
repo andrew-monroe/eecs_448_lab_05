@@ -7,6 +7,7 @@
 
   <form action="ViewUserPosts.php" method="POST">
     Username:<br>
+    <select name="username" required>
       <?php
         $connection = new mysqli("mysql.eecs.ku.edu", 'amonroe', 'P@$$word123','amonroe');
 
@@ -17,11 +18,9 @@
         $query = "SELECT user_id FROM Users";
 
         if ($users = $connection->query($query)) {
-          <select name="username" required>
           while($row = $users->fetch_assoc()) {
             echo "  <option>" . $row['user_id'] . "</option>";
           }
-          </select>
 
           $users->free();
         } else {
@@ -30,6 +29,7 @@
 
         $connection->close();
       ?> 
+    </select>
     <br><br>
     <input type="submit">
   </form>
