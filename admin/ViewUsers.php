@@ -38,5 +38,10 @@ $connection->close();
 </tbody>
 </table>
 
+  <form action="AdminHome.html">
+    <input type="submit" value="Back to Admin Home Page">
+  </form>
+
+
 </body>
 </html>

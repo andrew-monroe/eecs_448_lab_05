@@ -1,3 +1,9 @@
+<html>
+<head>
+  <title>Post Deletion Status</title>
+</head>
+<body>
+
 <?php
 $connection = new mysqli("mysql.eecs.ku.edu", 'amonroe', 'P@$$word123','amonroe');
 
@@ -36,3 +42,10 @@ foreach ($post_ids as $post) {
 /* close connection */
 $connection->close();
 ?>
+
+  <form action="AdminHome.html">
+    <input type="submit" value="Back to Admin Home Page">
+  </form>
+
+</body>
+</html>

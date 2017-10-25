@@ -8,6 +8,7 @@
 <table>
 <thead>
   <tr>
+    <th>Post ID</th>
     <th>Post Author</th>
     <th>Post Content</th>
     <th>Delete</th>
@@ -28,6 +29,7 @@ $query = "SELECT * FROM `Posts`";
 if ($posts = $connection->query($query)) {
   while($row = $posts->fetch_assoc()) {
     echo "<tr>";
+    echo "  <td>" . $row['post_id'] . "</td>";
     echo "  <td>" . $row['author_id'] . "</td>";
     echo "  <td>" . $row['content'] . "</td>";
     echo "  <td><input type='checkbox' name='post_ids[]' value='" . $row['post_id'] . "'></td>";
@@ -47,5 +49,10 @@ $connection->close();
 </table>
 <input type='submit'>
 </form>
+
+  <form action="AdminHome.html">
+    <input type="submit" value="Back to Admin Home Page">
+  </form>
+
 </body>
 </html>

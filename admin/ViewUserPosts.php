@@ -4,6 +4,9 @@
 </head>
 <body>
 <h1>List of Posts</h1>
+<?php
+  echo "<h2>Author: " . $_POST['username'] . "</h2>";
+?>
 <table>
 <thead>
   <tr>
@@ -38,6 +41,11 @@ $connection->close();
 ?>
 </tbody>
 </table>
+
+  <form action="AdminHome.html">
+    <input type="submit" value="Back to Admin Home Page">
+  </form>
+
 
 </body>
 </html>

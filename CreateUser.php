@@ -1,3 +1,8 @@
+<html>
+<head>
+  <title>User Status</title>
+</head>
+<body>
 <?php
 $connection = new mysqli("mysql.eecs.ku.edu", 'amonroe', 'P@$$word123','amonroe');
 
@@ -18,3 +23,9 @@ if ($connection->query($query)) {
 /* close connection */
 $connection->close();
 ?>
+
+  <form action="index.html">
+    <input type="submit" value="Back to Index">
+  </form>
+</body>
+</html>
